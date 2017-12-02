@@ -1,0 +1,47 @@
+package com.pratik.Test;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import com.pratik.domain.demo;
+
+
+public class clientTest {
+
+	public static void main(String[] args) 
+	{
+  //establish connection between java application and database
+		Configuration cfg=new Configuration().configure("com/pratik/cfgs/hibernate.cfg.xml");
+    //craete session factory object
+		SessionFactory factory=cfg.buildSessionFactory();
+    //create session  object
+		Session ses=factory.openSession();
+    //creating domain class object
+				demo prod=new demo();
+        //pid automatically set beacause we used increment generator
+        //set the values
+				prod.setPname("Shirt");
+				prod.setP_price(1200f);
+				prod.setP_quantity(3);
+				
+Transaction tx=null;
+				try {
+        //begin the transaction
+					tx = ses.beginTransaction();
+//save the object
+            ses.save(prod);
+					tx.commit();
+					System.out.println("object is saved");
+				} catch (Exception e) {
+					tx.rollback();
+
+				}
+        ses.close();
+        factory.close();
+
+	}//main()
+}//class
