@@ -20,7 +20,7 @@
 		<!--  If table not exist  this method create table automatically using entity class variables and datatypes-->
 		<property name="hbm2ddl.auto">update</property>
 
-			<mapping resource="com/pratik/cfgs/Emp.hbm.xml" />  
+			<mapping resource="com/pratik/cfgs/product.hbm.xml" />  
 
 	</session-factory>
 </hibernate-configuration>
