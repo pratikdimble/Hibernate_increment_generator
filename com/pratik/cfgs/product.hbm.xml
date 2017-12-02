@@ -5,7 +5,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
     
     <hibernate-mapping>
-    	<class name="com.pratik.domain.product" table="product">
+    	<class name="com.pratik.domain.demo" table="product">
 			<id name="pid" column="PRODID">
       <!-- Used increment Genneratot-->
       			<generator class="increment"></generator>
